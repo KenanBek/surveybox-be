@@ -4,14 +4,13 @@ from .common import Common
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-class Local(Common):
+class Docker(Common):
     DEBUG = True
-    SECRET_KEY = 'local'
 
-    # Local Postgres
+    # Postgres
     DATABASES = {
         'default': dj_database_url.config(
-            default='postgres://postgres:@localhost:5432/postgres',
+            default='postgres://postgres:@postgres:5432/postgres',
             conn_max_age=int(os.getenv('POSTGRES_CONN_MAX_AGE', 600))
         )
     }

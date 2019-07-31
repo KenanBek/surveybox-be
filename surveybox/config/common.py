@@ -1,7 +1,6 @@
 import os
 from os.path import join
 from distutils.util import strtobool
-import dj_database_url
 from configurations import Configuration
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,8 +22,8 @@ class Common(Configuration):
         'django_filters',            # for filtering rest endpoints
 
         # Your apps
-        'surveybox.users',
-
+        'surveybox.users',          # user management
+        'surveybox.surveys',        # surveys and ansers
     )
 
     # https://docs.djangoproject.com/en/2.0/topics/http/middleware/
@@ -49,14 +48,6 @@ class Common(Configuration):
     ADMINS = (
         ('Author', 'mail@kenanbek.me'),
     )
-
-    # Postgres
-    DATABASES = {
-        'default': dj_database_url.config(
-            default='postgres://postgres:@postgres:5432/postgres',
-            conn_max_age=int(os.getenv('POSTGRES_CONN_MAX_AGE', 600))
-        )
-    }
 
     # General
     APPEND_SLASH = False

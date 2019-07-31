@@ -6,7 +6,8 @@ services:
   web:
     restart: always
     environment:
-      - DJANGO_SECRET_KEY=local
+      - DJANGO_SECRET_KEY=docker
+      - DJANGO_CONFIGURATION=Docker
     image: web
     build: ./
     command: >

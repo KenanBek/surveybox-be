@@ -10,6 +10,7 @@ class SurveyViewSet(mixins.ListModelMixin,
                     mixins.RetrieveModelMixin,
                     mixins.UpdateModelMixin,
                     mixins.CreateModelMixin,
+                    mixins.DestroyModelMixin,
                     viewsets.GenericViewSet):
     queryset = Survey.objects.all()
     serializer_class = SurveySerializer
@@ -26,6 +27,7 @@ class AnswerViewSet(mixins.ListModelMixin,
                     mixins.RetrieveModelMixin,
                     mixins.UpdateModelMixin,
                     mixins.CreateModelMixin,
+                    mixins.DestroyModelMixin,
                     viewsets.GenericViewSet):
     queryset = Answer.objects.all()
     serializer_class = AnswerSerializer

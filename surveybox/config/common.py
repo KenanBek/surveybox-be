@@ -20,6 +20,7 @@ class Common(Configuration):
         'rest_framework',            # utilities for rest apis
         'rest_framework.authtoken',  # token authentication
         'django_filters',            # for filtering rest endpoints
+        'corsheaders',               # add cors headers
 
         # Your apps
         'surveybox.users',          # user management
@@ -30,6 +31,7 @@ class Common(Configuration):
     MIDDLEWARE = (
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
+        'corsheaders.middleware.CorsMiddleware',
         'django.middleware.common.CommonMiddleware',
         'django.middleware.csrf.CsrfViewMiddleware',
         'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -41,6 +43,11 @@ class Common(Configuration):
     ROOT_URLCONF = 'surveybox.urls'
     SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
     WSGI_APPLICATION = 'surveybox.wsgi.application'
+
+    CORS_ORIGIN_WHITELIST = [
+        'http://localhost:3000',
+    ]
+    CORS_ORIGIN_ALLOW_ALL = False
 
     # Email
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

@@ -1,0 +1,17 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: Docker@2
+  inputs:
+    containerRegistry: 'KananRahimovContainers'
+    repository: 'surveybox-be'
+    command: 'buildAndPush'
+    Dockerfile: './Dockerfile'
+    tags: |
+      latest
+      $(Build.BuildId)
+  displayName: 'Build and Push Docker Image'

@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: django-service
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 23.101.62.158
+  selector:
+    app: django-container
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000

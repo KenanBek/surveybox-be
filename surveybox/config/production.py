@@ -22,6 +22,11 @@ class Production(Common):
         }
     }
 
+    CORS_ORIGIN_WHITELIST = [
+        'http://40.127.161.35',
+        'http://surveybox-fe.northeurope.cloudapp.azure.com',
+    ]
+
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/2.0/howto/static-files/
     # http://django-storages.readthedocs.org/en/latest/index.html

@@ -2,11 +2,11 @@ from django.contrib import admin
 from .models import Survey, Answer
 
 
-admin.register(Survey)
+@admin.register(Survey)
 class SurveyAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['id', 'title', 'description']
 
 
 @admin.register(Answer)
 class AnswerAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['id', 'survey']

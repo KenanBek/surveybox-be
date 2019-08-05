@@ -12,7 +12,7 @@ router = DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'users', UserCreateViewSet)
 router.register(r'surveys', SurveyViewSet)
-router.register(r'ansers', AnswerViewSet)
+router.register(r'answers', AnswerViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

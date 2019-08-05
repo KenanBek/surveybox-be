@@ -5,6 +5,25 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+
+- task: DockerCompose@0
+  displayName: Build CI Containers
+  inputs:
+    action: Run A Docker Compose command
+    dockerComposeFile: docker-compose.ci.yml
+    abortOnContainerExit: true
+    buildImages: true
+    dockerComposeCommand: -f docker-compose.ci.yml build
+
+- task: DockerCompose@0
+  displayName: Run CI Containers
+  inputs:
+    action: Run A Docker Compose command
+    dockerComposeFile: docker-compose.ci.yml
+    abortOnContainerExit: true
+    buildImages: true
+    dockerComposeCommand: -f docker-compose.ci.yml up --abort-on-container-exit --exit-code-from web
+
 - task: Docker@2
   inputs:
     containerRegistry: 'KananRahimovContainers'

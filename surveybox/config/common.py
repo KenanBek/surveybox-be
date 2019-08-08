@@ -56,6 +56,9 @@ class Common(Configuration):
         ('Author', 'mail@kenanbek.me'),
     )
 
+    # Front-end
+    FE_URL = 'http://localhost:3000'
+
     # General
     APPEND_SLASH = False
     TIME_ZONE = 'UTC'

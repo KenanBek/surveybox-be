@@ -27,6 +27,9 @@ class Production(Common):
         'http://surveybox-fe.northeurope.cloudapp.azure.com',
     ]
 
+    # Front-end
+    FE_URL = 'http://surveybox-fe.northeurope.cloudapp.azure.com'
+
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/2.0/howto/static-files/
     # http://django-storages.readthedocs.org/en/latest/index.html
